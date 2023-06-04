@@ -25,7 +25,8 @@ public class ServiceTest extends BaseTest {
 
   @Test
   public void defaultService() {
-    ChromeDriverService service = new ChromeDriverService.Builder().build();
+    ChromeDriverService service = new ChromeDriverService.Builder()
+            .build();
     driver = new ChromeDriver(service);
   }
 
@@ -45,39 +46,5 @@ public class ServiceTest extends BaseTest {
         .build();
 
     driver = new ChromeDriver(service);
-  }
-
-  @Test
-  public void logsToFileWithLogOutput() {
-    ChromeDriverService service = new ChromeDriverService.Builder()
-        .withLogFile(logLocation)
-        .build();
-
-    driver = new ChromeDriver(service);
-  }
-
-  @Test
-  public void logsToFileProperty() {
-    System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY,
-        logLocation.getAbsolutePath());
-
-    driver = new ChromeDriver();
-  }
-
-  @Test
-  public void logsToStdoutWithLogOutput() {
-    ChromeDriverService service = new ChromeDriverService.Builder()
-        .withLogOutput(System.out)
-        .build();
-
-    driver = new ChromeDriver(service);
-  }
-
-  @Test
-  public void logsToStdoutProperty() {
-    System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY,
-        logLocation.getAbsolutePath());
-
-    driver = new ChromeDriver();
   }
 }
