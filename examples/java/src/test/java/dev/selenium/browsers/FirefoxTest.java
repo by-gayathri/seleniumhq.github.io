@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.firefox.*;
 
 import java.io.File;
@@ -73,7 +72,7 @@ public class FirefoxTest extends BaseTest {
 
     @Test
     public void logsWithLevel() throws IOException {
-        System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY,
+        System.setProperty(GeckoDriverService.GECKO_DRIVER_LOG_PROPERTY,
                 logLocation.getAbsolutePath());
 
         FirefoxDriverService service = new GeckoDriverService.Builder()
@@ -88,7 +87,7 @@ public class FirefoxTest extends BaseTest {
 
     @Test
     public void stopsTruncatingLogs() throws IOException {
-        System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY,
+        System.setProperty(GeckoDriverService.GECKO_DRIVER_LOG_PROPERTY,
                 logLocation.getAbsolutePath());
         System.setProperty(GeckoDriverService.GECKO_DRIVER_LOG_LEVEL_PROPERTY,
                 FirefoxDriverLogLevel.DEBUG.toString());
