@@ -47,28 +47,26 @@ Commonly used args include `-headless` and `"-profile", "/path/to/profile"`
 
 Add an argument to options:
 
-<div>
-{{< tabpane langEqualsHeader=true >}}
-{{< tab header="Java" text=true >}}
+{{< tabpane text=true langEqualsHeader=true >}}
+{{< tab header="Java" >}}
 {{< gh-codeblock path="/examples/java/src/test/java/dev/selenium/browsers/FirefoxTest.java#L44" >}}
 {{< /tab >}}
 {{< tab header="Python" >}}
 {{< gh-codeblock path="/examples/python/tests/browsers/test_firefox.py#L18" >}}
 {{< /tab >}}
-{{< tab header="CSharp" text=true >}}
+{{< tab header="CSharp" >}}
 {{< gh-codeblock path="/examples/dotnet/SeleniumDocs/Browsers/FirefoxTest.cs#L36" >}}
 {{< /tab >}}
-{{< tab header="Ruby" text=true >}}
+{{< tab header="Ruby" >}}
 {{< gh-codeblock path="/examples/ruby/spec/browsers/firefox_spec.rb#L14" >}}
 {{< /tab >}}
-{{< tab header="JavaScript" text=true >}}
+{{< tab header="JavaScript" >}}
 {{< gh-codeblock path="/examples/javascript/test/browser/firefoxSpecificFunctionalities.js#L7-L10">}}
 {{< /tab >}}
-{{< tab header="Kotlin" text=true >}}
+{{< tab header="Kotlin" >}}
 {{< badge-code >}}
 {{< /tab >}}
 {{< /tabpane >}}
-</div>
 
 ### Start browser in a specified location
 
@@ -81,19 +79,18 @@ Add a browser location to options:
 
 ### Profiles
 
-There are several ways to work with Firefox profiles
+There are several ways to work with Firefox profiles.
 
 <div>
+{{< badge-examples >}}
 {{< tabpane langEqualsHeader=true >}}
   {{< tab header="Java" >}}
-{{< badge-examples >}}
 FirefoxProfile profile = new FirefoxProfile();
 FirefoxOptions options = new FirefoxOptions();
 options.setProfile(profile);
-driver = new RemoteWebDriver(options);
+driver = new FirefoxDriver(options);
   {{< /tab >}}
   {{< tab header="Python" >}}
-{{< badge-examples >}}
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 options=Options()
@@ -102,21 +99,18 @@ firefox_profile.set_preference("javascript.enabled", False)
 options.profile = firefox_profile
   {{< /tab >}}
   {{< tab header="CSharp" >}}
-{{< badge-examples >}}
 var options = new FirefoxOptions();
 var profile = new FirefoxProfile();
 options.Profile = profile;
-var driver = new RemoteWebDriver(options);
+var driver = new FirefoxDriver(options);
   {{< /tab >}}
   {{< tab header="Ruby" >}}
-{{< badge-examples >}}
 profile = Selenium::WebDriver::Firefox::Profile.new
 profile['browser.download.dir'] = "/tmp/webdriver-downloads"
 options = Selenium::WebDriver::Firefox::Options.new(profile: profile)
 driver = Selenium::WebDriver.for :firefox, options: options
   {{< /tab >}}
   {{< tab header="JavaScript" >}}
-{{< badge-examples >}}
 const { Builder } = require("selenium-webdriver");
 const firefox = require('selenium-webdriver/firefox');
 
@@ -129,10 +123,9 @@ const driver = new Builder()
     .build();
   {{< /tab >}}
   {{< tab header="Kotlin" >}}
-{{< badge-examples >}}
 val options = FirefoxOptions()
 options.profile = FirefoxProfile()
-driver = RemoteWebDriver(options)
+driver = FirefoxDriver(options)
   {{< /tab >}}
 {{< /tabpane >}}
 </div>
@@ -151,11 +144,12 @@ direct where the logs will go. Logging output is ignored unless the user directs
 To change the logging output to save to a specific file:
 
 {{< tabpane text=true langEqualsHeader=true >}}
-{{< tab header="Java" >}}
-Java also allows setting file output by System Property with:
-`GeckoDriverService.GECKO_DRIVER_LOG_PROPERTY`
+{{% tab header="Java" %}}
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/FirefoxTest.java#L51" >}}
-{{< /tab >}}
+**Note**: Java also allows setting file output by System Property:\
+Property key: `GeckoDriverService.GECKO_DRIVER_LOG_PROPERTY`\
+Property value: String representing path to log file
+{{% /tab %}}
 {{< tab header="Python" >}}
 {{< gh-codeblock path="examples/python/tests/browsers/test_firefox.py#L25" >}}
 {{< /tab >}}
@@ -178,12 +172,12 @@ Java also allows setting file output by System Property with:
 To change the logging output to display in the console:
 
 {{< tabpane text=true langEqualsHeader=true >}}
-{{< tab header="Java" >}}
-Java also allows setting console output by System Property: `GeckoDriverService.GECKO_DRIVER_LOG_PROPERTY`,
-valid values include `DriverService.LOG_STDOUT` and `DriverService.LOG_STDERR`
+{{% tab header="Java" %}}
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/FirefoxTest.java#L65" >}}
-Can also pass log output to `STDERR` using `withLogOutput(System.err)`
-{{< /tab >}}
+**Note**: Java also allows setting console output by System Property;\
+Property key: `GeckoDriverService.GECKO_DRIVER_LOG_PROPERTY`\
+Property value: `DriverService.LOG_STDOUT` or `DriverService.LOG_STDERR`
+{{% /tab %}}
 {{< tab header="Python" >}}
 {{< badge-implementation >}}
 {{< /tab >}}
@@ -209,11 +203,12 @@ Note that `-v` is equivalent to `-log debug` and `-vv` is equivalent to `log tra
 so this examples is just for setting the log level generically:
 
 {{< tabpane text=true langEqualsHeader=true >}}
-{{< tab header="Java" >}}
-Java also allows setting log level by System Property: `GeckoDriverService.GECKO_DRIVER_LOG_LEVEL_PROPERTY`,
-valid values can be obtained like: `FirefoxDriverLogLevel.DEBUG.toString()`
+{{% tab header="Java" %}}
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/FirefoxTest.java#L80" >}}
-{{< /tab >}}
+**Note**: Java also allows setting log level by System Property:\
+Property key: `GeckoDriverService.GECKO_DRIVER_LOG_LEVEL_PROPERTY`\
+Property value: String representation of `FirefoxDriverLogLevel` enum
+{{% /tab %}}
 {{< tab header="Python" >}}
 {{< gh-codeblock path="examples/python/tests/browsers/test_firefox.py#L48" >}}
 {{< /tab >}}
@@ -237,11 +232,12 @@ The driver logs everything that gets sent to it, including string representation
 Firefox truncates lines by default. To turn off truncation:
 
 {{< tabpane text=true langEqualsHeader=true >}}
-{{< tab header="Java" >}}
-Java also allows turning off truncation by System Property: `GeckoDriverService.GECKO_DRIVER_LOG_NO_TRUNCATE`,
-with a boolean string value.
+{{% tab header="Java" %}}
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/FirefoxTest.java#L97" >}}
-{{< /tab >}}
+**Note**: Java also allows setting log level by System Property:\
+Property key: `GeckoDriverService.GECKO_DRIVER_LOG_NO_TRUNCATE`\
+Property value: `"true"` or `"false"`
+{{% /tab %}}
 {{< tab header="Python" >}}
 {{< gh-codeblock path="examples/python/tests/browsers/test_firefox.py#L59" >}}
 {{< /tab >}}
@@ -265,10 +261,12 @@ The default directory for profiles is the system temporary directory. If you do 
 or want profiles to be created some place specific, you can change the profile root directory:
 
 {{< tabpane text=true langEqualsHeader=true >}}
-{{< tab header="Java" >}}
-Java also allows setting Profile Root by System Property with: `GeckoDriverService.GECKO_DRIVER_PROFILE_ROOT`.
+{{% tab header="Java" %}}
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/FirefoxTest.java#L111" >}}
-{{< /tab >}}
+**Note**: Java also allows setting log level by System Property:\
+Property key: `GeckoDriverService.GECKO_DRIVER_PROFILE_ROOT`\
+Property value: String representing path to profile root directory
+{{% /tab %}}
 {{< tab header="Python" >}}
 {{< gh-codeblock path="examples/python/tests/browsers/test_firefox.py#L71" >}}
 {{< /tab >}}

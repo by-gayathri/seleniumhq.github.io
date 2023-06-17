@@ -27,17 +27,17 @@ Additional information about using Internet Explorer can be found on the
 
 Starting a Microsoft Edge browser in Internet Explorer Compatibility mode with basic defined options looks like this:
 
-{{< tabpane langEqualsHeader=true >}}
-{{< tab header="Java" text=true >}}
+{{< tabpane text=true langEqualsHeader=true >}}
+{{< tab header="Java" >}}
 {{< gh-codeblock path="/examples/java/src/test/java/dev/selenium/browsers/InternetExplorerTest.java#37-L40" >}}
 {{< /tab >}}
-{{% tab header="Python" text=true %}}
+{{% tab header="Python" %}}
 {{< gh-codeblock path="/examples/python/tests/browsers/test_internet_explorer.py#L13-L16" >}}
 {{% /tab %}}
-{{% tab header="CSharp" text=true %}}
+{{% tab header="CSharp" %}}
 {{< gh-codeblock path="/examples/dotnet/SeleniumDocs/Browsers/InternetExplorerTest.cs#L28-L31" >}}
 {{% /tab %}}
-{{< tab header="Ruby" text=true >}}
+{{< tab header="Ruby" >}}
 {{< gh-codeblock path="/examples/ruby/spec/browsers/internet_explorer_spec.rb#L8-L11" >}}
 {{< /tab >}}
 {{< tab header="JavaScript" >}}
@@ -69,7 +69,6 @@ So, if IE is not on the system, you only need:
 {{< tab header="Ruby" text=true >}}
 {{< gh-codeblock path="/examples/ruby/spec/browsers/internet_explorer_spec.rb#L15-L16" >}}
 {{< /tab >}}
-{{< badge-examples >}}
 {{< tab header="JavaScript" >}}
 let driver = await new Builder()
 .forBrowser('internet explorer')
@@ -92,15 +91,14 @@ File Upload dialog. IEDriver has a default timeout of 1000ms, but you
 can increase the timeout using the fileUploadDialogTimeout capability.
 
 <div>
+{{< badge-examples >}}
 {{< tabpane langEqualsHeader=true >}}
   {{< tab header="Java" >}}
-{{< badge-examples >}}
 InternetExplorerOptions options = new InternetExplorerOptions();
 options.waitForUploadDialogUpTo(Duration.ofSeconds(2));
 WebDriver driver = new RemoteWebDriver(options);
   {{< /tab >}}
   {{< tab header="Python" >}}
-{{< badge-examples >}}
 from selenium import webdriver
 
 options = webdriver.IeOptions()
@@ -112,19 +110,16 @@ driver.get("http://www.google.com")
 driver.quit()
   {{< /tab >}}
   {{< tab header="CSharp" >}}
-{{< badge-examples >}}
 var options = new InternetExplorerOptions();
 options.FileUploadDialogTimeout = TimeSpan.FromMilliseconds(2000);
 var driver = new RemoteWebDriver(options);
   {{< /tab >}}
   {{< tab header="Ruby" >}}
-{{< badge-examples >}}
 options = Selenium::WebDriver::IE::Options.new
 options.file_upload_dialog_timeout = 2000
 driver = Selenium::WebDriver.for(:ie, options: options)
   {{< /tab >}}
   {{< tab header="JavaScript" >}}
-{{< badge-examples >}}
 const ie = require('selenium-webdriver/ie');
 let options = new ie.Options().fileUploadDialogTimeout(2000);
 let driver = await Builder()
@@ -153,15 +148,14 @@ gets cleared before launching the IE browser.
 This capability accepts a Boolean value as parameter.
 
 <div>
+{{< badge-examples >}}
 {{< tabpane langEqualsHeader=true >}}
   {{< tab header="Java" >}}
-{{< badge-examples >}}
 InternetExplorerOptions options = new InternetExplorerOptions();
 options.destructivelyEnsureCleanSession();
 WebDriver driver = new RemoteWebDriver(options);
   {{< /tab >}}
   {{< tab header="Python" >}}
-{{< badge-examples >}}
 from selenium import webdriver
 
 options = webdriver.IeOptions()
@@ -173,19 +167,16 @@ driver.get("http://www.google.com")
 driver.quit()
   {{< /tab >}}
   {{< tab header="CSharp" >}}
-{{< badge-examples >}}
 var options = new InternetExplorerOptions();
 options.EnsureCleanSession = true;
 var driver = new RemoteWebDriver(options);
   {{< /tab >}}
   {{< tab header="Ruby" >}}
-{{< badge-examples >}}
 options = Selenium::WebDriver::IE::Options.new
 options.ensure_clean_session = true
 driver = Selenium::WebDriver.for(:ie, options: options)
   {{< /tab >}}
   {{< tab header="JavaScript" >}}
-{{< badge-examples >}}
 const ie = require('selenium-webdriver/ie');
 let options = new ie.Options().ensureCleanSession(true);
 let driver = await Builder()
@@ -209,6 +200,7 @@ can be disabled by setting the _ignoreZoomSetting_ to _true_.
 This capability accepts a Boolean value as parameter.
  
 <div>
+{{< badge-examples >}}
 {{< tabpane langEqualsHeader=true >}}
   {{< tab header="Java" >}}
 InternetExplorerOptions options = new InternetExplorerOptions();
@@ -270,6 +262,7 @@ only a "best effort" at support will be given.
 This capability accepts a Boolean value as parameter.
  
 <div>
+{{< badge-examples >}}
 {{< tabpane langEqualsHeader=true >}}
   {{< tab header="Java" >}}
 InternetExplorerOptions options = new InternetExplorerOptions();
@@ -320,6 +313,7 @@ diagnostic output of the IEDriverServer.
 This capability accepts a Boolean value as parameter.
  
 <div>
+{{< badge-examples >}}
 {{< tabpane langEqualsHeader=true >}}
   {{< tab header="Java" >}}
 InternetExplorerOptions options = new InternetExplorerOptions();
@@ -401,6 +395,8 @@ This option specifically used to troubleshoot problems with browser add-ons. Wor
 
 Note: __forceCreateProcessApi__ should to enabled in-order for command line arguments to work.
 
+<div>
+{{< badge-examples >}}
 {{< tabpane langEqualsHeader=true >}}
   {{< tab header="Java" >}}
 import org.openqa.selenium.Capabilities;
@@ -498,6 +494,7 @@ fun main() {
 }
   {{< /tab >}}
 {{< /tabpane >}}
+</div>
 
 ### forceCreateProcessApi
 
@@ -507,6 +504,8 @@ using the CreateProcess API. The default value is false.
 For IE 8 and above, this option requires the 
 "TabProcGrowth" registry value to be set to 0.
 
+<div>
+{{< badge-examples >}}
 {{< tabpane langEqualsHeader=true >}}
   {{< tab header="Java" >}}
 import org.openqa.selenium.Capabilities;
@@ -596,6 +595,7 @@ fun main() {
 }
   {{< /tab >}}
 {{< /tabpane >}}
+</div>
 
 ## Service
 
@@ -611,11 +611,12 @@ direct where the logs will go. Logging output is ignored unless the user directs
 To change the logging output to save to a specific file:
 
 {{< tabpane text=true langEqualsHeader=true >}}
-{{< tab header="Java" >}}
-Java also allows setting file output by System Property with:
-`InternetExplorerDriverService.IE_DRIVER_LOGFILE_PROPERTY`
+{{% tab header="Java" %}}
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/InternetExplorerTest.java#L52" >}}
-{{< /tab >}}
+**Note**: Java also allows setting file output by System Property:\
+Property key: `InternetExplorerDriverService.IE_DRIVER_LOGFILE_PROPERTY`\
+Property value: String representing path to log file
+{{% /tab %}}
 {{< tab header="Python" >}}
 {{< gh-codeblock path="examples/python/tests/browsers/test_internet_explorer.py#L30" >}}
 {{< /tab >}}
@@ -623,7 +624,7 @@ Java also allows setting file output by System Property with:
 {{< badge-implementation >}}
 {{< /tab >}}
 {{< tab header="Ruby" >}}
-{{< gh-codeblock path="examples/ruby/spec/browsers/internet_explorer_spec.rb#L36" >}}
+{{< gh-codeblock path="examples/ruby/spec/browsers/internet_explorer_spec.rb#L34" >}}
 {{< /tab >}}
 {{< tab header="JavaScript" >}}
 {{< badge-code >}}
@@ -638,13 +639,12 @@ Java also allows setting file output by System Property with:
 To change the logging output to display in the console as STDOUT:
 
 {{< tabpane text=true langEqualsHeader=true >}}
-{{< tab header="Java" >}}
-Java also allows setting file output by System Property with:
-`InternetExplorerDriverService.IE_DRIVER_LOGFILE_PROPERTY`,
-valid values include `DriverService.LOG_STDOUT` and `DriverService.LOG_STDERR`
+{{% tab header="Java" %}}
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/InternetExplorerTest.java#L66" >}}
-Can also pass log output to `STDERR` using `withLogOutput(System.err)`
-{{< /tab >}}
+**Note**: Java also allows setting console output by System Property;\
+Property key: `InternetExplorerDriverService.IE_DRIVER_LOGFILE_PROPERTY`\
+Property value: `DriverService.LOG_STDOUT` or `DriverService.LOG_STDERR`
+{{% /tab %}}
 {{< tab header="Python" >}}
 {{< badge-implementation >}}
 {{< /tab >}}
@@ -667,12 +667,12 @@ There are 6 available log levels: `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, and
 If logging output is specified, the default level is `FATAL`
 
 {{< tabpane text=true langEqualsHeader=true >}}
-{{< tab header="Java" >}}
-Java also allows setting log level by System Property with:
-`InternetExplorerDriverService.IE_DRIVER_LOGLEVEL_PROPERTY`
-valid values obtained like: `InternetExplorerDriverLogLevel.DEBUG.toString())`
+{{% tab header="Java" %}}
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/InternetExplorerTest.java#L81" >}}
-{{< /tab >}}
+**Note**: Java also allows setting log level by System Property:\
+Property key: `InternetExplorerDriverService.IE_DRIVER_LOGLEVEL_PROPERTY`\
+Property value: String representation of `InternetExplorerDriverLogLevel.DEBUG.toString()` enum
+{{% /tab %}}
 {{< tab header="Python" >}}
 {{< gh-codeblock path="examples/python/tests/browsers/test_internet_explorer.py#L53" >}}
 {{< /tab >}}
@@ -694,9 +694,10 @@ valid values obtained like: `InternetExplorerDriverLogLevel.DEBUG.toString())`
 
 {{< tabpane text=true langEqualsHeader=true >}}
 {{< tab header="Java" >}}
-Java also allows setting supporting file location by System Property with:
-`InternetExplorerDriverService.IE_DRIVER_EXTRACT_PATH_PROPERTY`
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/InternetExplorerTest.java#L93" >}}
+**Note**: Java also allows setting log level by System Property:\
+Property key: `InternetExplorerDriverService.IE_DRIVER_EXTRACT_PATH_PROPERTY`\
+Property value: String representing path to supporting files directory
 {{< /tab >}}
 {{< tab header="Python" >}}
 {{< gh-codeblock path="examples/python/tests/browsers/test_internet_explorer.py#L64" >}}

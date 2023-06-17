@@ -20,16 +20,16 @@ Starting an Edge session with basic defined options looks like this:
 
 {{< tabpane text=true langEqualsHeader=true >}}
 {{< tab header="Java" >}}
-{{< gh-codeblock path="/examples/java/src/test/java/dev/selenium/browsers/EdgeTest.java#L18-L19" >}}
+{{< gh-codeblock path="/examples/java/src/test/java/dev/selenium/browsers/EdgeTest.java#L33-L34" >}}
 {{< /tab >}}
 {{% tab header="Python" %}}
-{{< gh-codeblock path="/examples/python/tests/browsers/test_edge.py#L6-L7" >}}
+{{< gh-codeblock path="/examples/python/tests/browsers/test_edge.py#L9-L10" >}}
 {{% /tab %}}
 {{< tab header="CSharp" >}}
-{{< gh-codeblock path="/examples/dotnet/SeleniumDocs/Browsers/EdgeTest.cs#L12-L13" >}}
+{{< gh-codeblock path="/examples/dotnet/SeleniumDocs/Browsers/EdgeTest.cs#L28-L29" >}}
 {{< /tab >}}
 {{< tab header="Ruby" >}}
-{{< gh-codeblock path="/examples/ruby/spec/browsers/edge_spec.rb#L9-L10" >}}
+{{< gh-codeblock path="/examples/ruby/spec/browsers/edge_spec.rb#L8-L9" >}}
 {{< /tab >}}
 {{< tab header="JavaScript" >}}
 {{< gh-codeblock path="/examples/javascript/test/getting_started/openEdgeTest.spec.js#L11-L15">}}
@@ -78,7 +78,7 @@ use chromedriver to drive various Chromium based browsers.
 
 Add a browser location to options:
 
-{{</* alert-code /*/>}}
+{{< alert-code />}}
 
 ### Add extensions
 
@@ -182,7 +182,6 @@ To change the logging output to display in the console as STDOUT:
 
 {{< tabpane text=true langEqualsHeader=true >}}
 {{% tab header="Java" %}}
-`System.out` and `System.err` are both valid values
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/EdgeTest.java#L69" >}}
 **Note**: Java also allows setting console output by System Property;\
 Property key: `EdgeDriverService.EDGE_DRIVER_LOG_PROPERTY`\
@@ -194,10 +193,10 @@ Property value: `DriverService.LOG_STDOUT` or `DriverService.LOG_STDERR`
 {{< tab header="CSharp" >}}
 {{< badge-implementation >}}
 {{< /tab >}}
-{{< tab header="Ruby" >}}
+{{% tab header="Ruby" %}}
 `$stdout` and `$stderr` are both valid values
 {{< gh-codeblock path="examples/ruby/spec/browsers/edge_spec.rb#L53" >}}
-{{< /tab >}}
+{{% /tab %}}
 {{< tab header="JavaScript" >}}
 {{< badge-code >}}
 {{< /tab >}}
@@ -275,7 +274,7 @@ Note that this is an unsupported feature, and bugs will not be investigated.
 
 {{< tabpane text=true langEqualsHeader=true >}}
 {{% tab header="Java" %}}
-{{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/ChromeTest.java#L101" >}}
+{{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/ChromeTest.java#L120" >}}
 **Note**: Java also allows disabling build checks by System Property:\
 Property key: `EdgeDriverService.EDGE_DRIVER_DISABLE_BUILD_CHECK`\
 Property value: `"true"` or `"false"`

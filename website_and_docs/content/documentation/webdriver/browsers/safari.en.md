@@ -59,11 +59,12 @@ Unlike other browsers, Safari doesn't let you choose where logs are output, or c
 available is to turn logs off or on. If logs are toggled on, they can be found at:`~/Library/Logs/com.apple.WebDriver/`.
 
 {{< tabpane text=true langEqualsHeader=true >}}
-{{< tab header="Java" >}}
-Java also allows turning on logging by System Property:
-`SafariDriverService.SAFARI_DRIVER_LOGGING`, with a boolean string value.
+{{% tab header="Java" %}}
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/SafariTest.java#L31" >}}
-{{< /tab >}}
+**Note**: Java also allows setting console output by System Property;\
+Property key: `SafariDriverService.SAFARI_DRIVER_LOGGING`\
+Property value: `"true"` or `"false"`
+{{% /tab %}}
 {{< tab header="Python" >}}
 {{< gh-codeblock path="examples/python/tests/browsers/test_safari.py#L17" >}}
 {{< /tab >}}

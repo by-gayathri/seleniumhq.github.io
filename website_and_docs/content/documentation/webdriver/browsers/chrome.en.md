@@ -23,16 +23,16 @@ Starting a Chrome session with basic defined options looks like this:
 
 {{< tabpane text=true langEqualsHeader=true >}}
 {{< tab header="Java" >}}
-{{< gh-codeblock path="/examples/java/src/test/java/dev/selenium/browsers/ChromeTest.java#L18-L19" >}}
+{{< gh-codeblock path="/examples/java/src/test/java/dev/selenium/browsers/ChromeTest.java#L33-L34" >}}
 {{< /tab >}}
 {{% tab header="Python" %}}
-{{< gh-codeblock path="/examples/python/tests/browsers/test_chrome.py#L6-L7" >}}
+{{< gh-codeblock path="/examples/python/tests/browsers/test_chrome.py#L9-L10" >}}
 {{% /tab %}}
 {{< tab header="CSharp" >}}
-{{< gh-codeblock path="/examples/dotnet/SeleniumDocs/Browsers/ChromeTest.cs#L12-L13" >}}
+{{< gh-codeblock path="/examples/dotnet/SeleniumDocs/Browsers/ChromeTest.cs#L28-L29" >}}
 {{< /tab >}}
 {{< tab header="Ruby" >}}
-{{< gh-codeblock path="/examples/ruby/spec/browsers/chrome_spec.rb#L9-L10" >}}
+{{< gh-codeblock path="/examples/ruby/spec/browsers/chrome_spec.rb#L8-L9" >}}
 {{< /tab >}}
 {{< tab header="JavaScript" >}}
 {{< gh-codeblock path="/examples/javascript/test/browser/chromeSpecificCaps.spec.js#L51-L55">}}
@@ -235,7 +235,6 @@ To change the logging output to display in the console as STDOUT:
 
 {{< tabpane text=true langEqualsHeader=true >}}
 {{% tab header="Java" %}}
-`System.out` and `System.err` are both valid values
 {{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/ChromeTest.java#L69" >}}
 **Note**: Java also allows setting console output by System Property;\
 Property key: `ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY`\
@@ -328,7 +327,7 @@ Note that this is an unsupported feature, and bugs will not be investigated.
 
 {{< tabpane text=true langEqualsHeader=true >}}
 {{% tab header="Java" %}}
-{{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/ChromeTest.java#L101" >}}
+{{< gh-codeblock path="examples/java/src/test/java/dev/selenium/browsers/ChromeTest.java#L120" >}}
 **Note**: Java also allows disabling build checks by System Property:\
 Property key: `ChromeDriverService.CHROME_DRIVER_DISABLE_BUILD_CHECK`\
 Property value: `"true"` or `"false"`
