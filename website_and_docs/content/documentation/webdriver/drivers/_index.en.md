@@ -25,9 +25,67 @@ on the local machine.
 
 * [Service]({{< ref "service.md" >}}) object applies only to local drivers and provides information about the browser driver
 
-{{< alert-code >}}
-Show Starting Local driver with multiple arguments.
-{{< /alert-code >}}
+{{< tabpane langEqualsHeader=true >}}
+{{< tab header="Java" >}}
+ChromeDriverService service = new ChromeDriverService.Builder()
+        .withLogOutput(System.out)
+        .build();
+ChromeOptions options = new ChromeOptions();
+options.addArguments("--remote-allow-origins=*");
+options.addArguments("--start-maximized");
+driver = new ChromeDriver(service, options);
+driver.quit();
+{{< /tab >}}
+{{< tab header="Python" >}}
+from selenium import webdriver
+service = webdriver.chrome.service.Service(log_path=log_path)
+options = webdriver.ChromeOptions()
+options.add_argument("--remote-allow-origins=*")
+options.add_argument("--start-maximized")
+driver = webdriver.Chrome(service=service, options=options)
+driver.quit()
+{{< /tab >}}
+{{< tab header="CSharp" text=true >}}
+{{< badge-code >}}
+{{< /tab >}}
+{{< tab header="Ruby" >}}
+require 'selenium-webdriver'
+service = Selenium::WebDriver::Service.chrome(
+  :log_output => File.open('chromedriver.log', 'w')
+options = Selenium::WebDriver::Chrome::Options.new
+options.add_argument("--remote-allow-origins=*")
+options.add_argument("--start-maximized")
+driver = Selenium::WebDriver.for :chrome, service: service, options: options
+driver.quit
+{{< /tab >}}
+{{< tab header="JavaScript" >}}
+const { Builder, Capabilities } = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+const service = new chrome.ServiceBuilder()
+  .loggingTo('chromedriver.log')
+  .build();
+const options = new chrome.Options();
+options.addArguments("--remote-allow-origins=*");
+options.addArguments("--start-maximized");
+const capabilities = Capabilities.chrome().set('goog:chromeOptions', options);
+const driver = new Builder()
+  .forBrowser('chrome')
+  .setChromeService(service)
+  .withCapabilities(capabilities)
+  .build();
+driver.quit();  
+{{< /tab >}}
+{{< tab header="Kotlin" >}}
+val service = ChromeDriverService.Builder()
+    .withLogFile(java.io.File("chromedriver.log"))
+    .build()
+val options = ChromeOptions()
+options.addArguments("--remote-allow-origins=*")
+options.addArguments("--start-maximized")
+val driver = ChromeDriver(service, options)
+driver.quit()
+{{< /tab >}}
+{{< /tabpane >}}
 
 ### Remote Driver
 
@@ -42,6 +100,24 @@ Quitting a session corresponds to W3C command for [Deleting a Session](https://w
 Important note: the `quit` method is different from the `close` method, 
 and it is recommended to always use `quit` to end the session
 
-{{< alert-code >}}
-Show quitting a session.
-{{< /alert-code >}}
+{{< tabpane langEqualsHeader=true >}}
+  {{< tab header="Java" >}}
+    driver.quit();
+  {{< /tab >}}
+  {{< tab header="Python" >}}
+    driver.quit()
+  {{< /tab >}}
+  {{< tab header="CSharp" >}}
+    driver.Quit();
+  {{< /tab >}}
+  {{< tab header="Ruby" >}}
+    driver.quit
+  {{< /tab >}}
+  {{< tab header="JavaScript" >}}
+    driver.quit();
+  {{< /tab >}}
+  {{< tab header="Kotlin" >}}
+    driver.quit()
+  {{< /tab >}}
+{{< /tabpane >}}
+

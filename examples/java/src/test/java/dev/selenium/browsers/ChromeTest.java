@@ -143,6 +143,14 @@ public class ChromeTest {
         Assertions.assertEquals("Content injected by webextensions-selenium-example", injected.getText());
     }
 
+    @Ignore("Need chrome binary to run this test")
+    @Test
+    public void setBinary() {
+        ChromeOptions options = new ChromeOptions();
+        driver = new ChromeDriver(options.setBinary("Path to chrome binary"));
+        driver.get("https://www.selenium.dev/selenium/web/blank.html");
+    }
+
     private File getLogLocation() throws IOException {
         if (logLocation == null || !logLocation.exists()) {
             logLocation = File.createTempFile("chromedriver-", ".log");
